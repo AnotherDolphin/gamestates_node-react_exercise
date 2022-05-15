@@ -5,18 +5,19 @@ import { Game } from './interfaces'
 import TableBody from './TableBody'
 import TableHead from './TableHead'
 
-const tableHeads = ['Game', 'Genre', 'Platfroms', 'Total play time']
+const tableHeads = ['Game', 'Genre', 'Platfroms']
 
 export default function Table({ by }: { by: string }) {
   const [data, setData] = useState<Game[]>([])
   const [platform, setPlatform] = useState<string>('')
   const [genre, setGenre] = useState<string>('')
-console.log(genre);
 
   const getData = async () => {
     let url = `http://localhost:4000/${by}?`
-    if(platform) url += 'platform=' + platform + '&'
-    if(genre) url += 'genre=' + genre
+    if (platform) url += 'platform=' + platform + '&'
+    if (genre) url += 'genre=' + genre
+    console.log(url);
+    
     const res = await fetch(url)
     const json = await res.json()
     setData(json)
@@ -24,12 +25,15 @@ console.log(genre);
 
   useEffect(() => {
     getData()
-  }, [genre])
+  }, [genre, platform])
 
   return (
     <div className='flex-col items-end gap-8 w-3/4 h-1/2'>
-      <TableHead title={by} filters={[]} setGenre={setGenre} />
-      <TableBody headers={tableHeads} data={data} />
+      <TableHead title={by} setGenre={setGenre} setPlatform={setPlatform} />
+      <TableBody
+        headers={[...tableHeads, by == 'playtime' ? 'Total play time' : 'Total players']}
+        data={data}
+      />
     </div>
   )
 }

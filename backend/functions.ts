@@ -6,6 +6,8 @@ const select_top_by_playtime = (json: rawData, options: Options = {}) => {
   // sort
   let sorted = [...data.entries()].sort((a, b) => b[1].totalPlayTime - a[1].totalPlayTime)
   // filter
+  console.log(options);
+
   if (options) sorted = filter(sorted, options)
   // convert map to unnamed obj array
   return sorted.map(val => val[1])
@@ -15,9 +17,7 @@ const select_top_by_players = (json: rawData, options: Options = {}) => {
   // sort
   const data = gameMap(json)
   let sorted = [...data.entries()].sort((a, b) => b[1].totalPlayers - a[1].totalPlayers)
-  // filter
-  console.log(options);
-  
+  // filter  
   if (options) sorted = filter(sorted, options)
   // convert map to unnamed obj array
   return sorted.map(val => val[1])

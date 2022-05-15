@@ -16,6 +16,8 @@ app.get('/playtime', (req, res) => {
     genre: req.query.genre as Genre ?? '',
     platform: req.query.platform as Platform ?? ''
   }
+  console.log(options);
+  
   res.json(select_top_by_playtime(dataSet, options))
 })
 

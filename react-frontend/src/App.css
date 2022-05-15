@@ -4,7 +4,8 @@
 }
 
 .menu.open {
-  max-height: 20rem;
+  max-height: 10rem;
+  overflow: auto;
 }
 
 .menu-item {
@@ -12,7 +13,7 @@
 }
 
 .menu-button {
-  @apply flex items-center gap-2 text-base bg-black hover:bg-slate-900 text-gray-300 border-2 border-gray-300 rounded-2xl px-2 py-1 self-center relative cursor-pointer
+  @apply items-center gap-2 text-base bg-black hover:bg-slate-900 text-gray-300 border-2 border-gray-300 rounded-2xl px-2 py-1 self-center relative cursor-pointer
 }
 
 .App {
