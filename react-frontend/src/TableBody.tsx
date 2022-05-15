@@ -5,7 +5,7 @@ export default function TableBody({ headers, data }: { headers: string[]; data: 
   return (
     <table className='my-4 text-base w-full'>
       <tbody className='overflow-auto max-h-[25vh] w-full block'>
-        <tr className='bg-gray-900 flex w-full'>
+        <tr className='bg-gray-900 flex w-full py-1'>
           {headers.map((head, i) => (
             <th key={i} className='font-normal flex-1 px-4'>
               {head}

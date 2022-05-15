@@ -5,27 +5,27 @@ import { useOutsideAlerter } from './util'
 interface Props {
   menuOpen: boolean
   setMenuOpen: Function
+  currentFilter: string
   setFilter: Function
   filterOptions: string[]
 }
 
-export default function TableFilterBox({ menuOpen, setMenuOpen, setFilter, filterOptions }: Props) {
+export default function TableFilterBox({ menuOpen, setMenuOpen, setFilter, filterOptions, currentFilter }: Props) {
   const [searchText, setSearchText] = useState('')
   const [filterList, setFilterList] = useState(filterOptions)
-  const [selectedFilter, setSelectedFilter] = useState('')
   const filterRef = useRef(null)
-  useOutsideAlerter(filterRef, setMenuOpen)
+  useOutsideAlerter(filterRef, setMenuOpen)  
 
   return (
     <div
       ref={filterRef}
       className={`${
-        !menuOpen && !selectedFilter ? 'hidden' : 'flex'
+        !menuOpen && !currentFilter ? 'hidden' : 'flex'
       } self-center menu-button relative`}
     >
       <div className='flex gap-2 items-center' onClick={() => setMenuOpen(!menuOpen)}>
         <FiFilter />
-        {menuOpen ? 'Genre' : selectedFilter}
+        {menuOpen ? 'Genre' : currentFilter}
       </div>
       <input
         className={`${menuOpen ? '' : 'hidden'} text-black px-2 w-16`}
@@ -44,7 +44,7 @@ export default function TableFilterBox({ menuOpen, setMenuOpen, setFilter, filte
         {filterList.map((x, i) => (
           <div
             onClick={() => {
-              setSelectedFilter(x)
+              setFilter(x)
               setMenuOpen(false)
               setFilter(x)
             }}

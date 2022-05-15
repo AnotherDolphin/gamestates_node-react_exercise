@@ -15,9 +15,7 @@ export default function Table({ by }: { by: string }) {
   const getData = async () => {
     let url = `http://localhost:4000/${by}?`
     if (platform) url += 'platform=' + platform + '&'
-    if (genre) url += 'genre=' + genre
-    console.log(url);
-    
+    if (genre) url += 'genre=' + genre    
     const res = await fetch(url)
     const json = await res.json()
     setData(json)
@@ -29,7 +27,7 @@ export default function Table({ by }: { by: string }) {
 
   return (
     <div className='flex-col items-end gap-8 w-3/4 h-1/2'>
-      <TableHead title={by} setGenre={setGenre} setPlatform={setPlatform} />
+      <TableHead title={by} setGenre={setGenre} setPlatform={setPlatform} currentGenre={genre} currentPlatfrom={platform}/>
       <TableBody
         headers={[...tableHeads, by == 'playtime' ? 'Total play time' : 'Total players']}
         data={data}

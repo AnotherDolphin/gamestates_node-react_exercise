@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { AiOutlinePlus } from 'react-icons/ai'
+import { MdOutlineCancel } from 'react-icons/md'
 import { RiTimer2Line } from 'react-icons/ri'
 import { IoGameControllerOutline } from 'react-icons/io5'
 import { genres, platforms, useOutsideAlerter } from './util'
@@ -9,9 +10,17 @@ interface Props {
   title: string
   setGenre: Function
   setPlatform: Function
+  currentGenre: string
+  currentPlatfrom: string
 }
 
-export default function TableHead({ title, setGenre, setPlatform }: Props) {
+export default function TableHead({
+  title,
+  setGenre,
+  setPlatform,
+  currentGenre,
+  currentPlatfrom,
+}: Props) {
   const [filterMenuOpen, setFilterMenu] = useState(false)
   const filterMenuRef = useRef(null)
   useOutsideAlerter(filterMenuRef, setFilterMenu)
@@ -31,12 +40,14 @@ export default function TableHead({ title, setGenre, setPlatform }: Props) {
       </h1>
       <TableFilterBox
         menuOpen={genreMenuOpen}
+        currentFilter={currentGenre}
         setFilter={setGenre}
         setMenuOpen={setGenreMenuOpen}
         filterOptions={genres}
       />
       <TableFilterBox
         menuOpen={platformMenuOpen}
+        currentFilter={currentPlatfrom}
         setFilter={setPlatform}
         setMenuOpen={setPlatformMenuOpen}
         filterOptions={platforms}
@@ -57,6 +68,16 @@ export default function TableHead({ title, setGenre, setPlatform }: Props) {
           </div>
         </div>
       </div>
+      {(currentGenre||currentPlatfrom) && <button
+        className='bg-slate-900 rounded-3xl self-center flex items-center shadow-xl px-2 py-1'
+        onClick={() => {
+          setGenre('')
+          setPlatform('')
+        }}
+      >
+          <MdOutlineCancel />
+          <h3 className='text-sm text-ba'>clear</h3>
+      </button>}
     </div>
   )
 }

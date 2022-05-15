@@ -1,0 +1,23 @@
+[33mcommit be41d74600d475ca9959955aa937c0adaec3a1a8[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Abdullah Nayer <abdullahnayer@gmail.com>
+Date:   Mon May 16 00:21:37 2022 +0200
+
+    frontend features complete
+
+[33mcommit 8992b95947b114498db8c60199f5c5b0903c8f9e[m
+Author: Abdullah Nayer <abdullahnayer@gmail.com>
+Date:   Sun May 15 22:27:46 2022 +0200
+
+    integrated
+
+[33mcommit a6a16b6a8a99d123c9d5ee17a610797e5e9cb441[m
+Author: Abdullah Nayer <abdullahnayer@gmail.com>
+Date:   Sun May 15 03:15:52 2022 +0200
+
+    frontend setup
+
+[33mcommit 27c916621b479bb1229fbb8b8a46485ed7c0b81d[m
+Author: Abdullah Nayer <abdullahnayer@gmail.com>
+Date:   Sun May 15 02:22:37 2022 +0200
+
+    server setup
