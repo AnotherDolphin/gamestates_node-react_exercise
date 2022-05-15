@@ -1,16 +1,15 @@
 import express from 'express'
+import cors from 'cors'
 import dataSet from './games.json'
-import {select_top_by_players, select_top_by_playtime} from './functions'
+import { select_top_by_players, select_top_by_playtime } from './functions'
 
 const app = express()
+app.use(cors())
 
-app.listen(3000, () => {
-  console.log('Server started on :3000 ...')
+app.listen(4000, () => {
+  console.log('Server started on :4000 ...')
 })
 
 app.get('/', (req, res) => {
-  // const output= 
-  
   res.json(select_top_by_playtime(dataSet))
 })
-

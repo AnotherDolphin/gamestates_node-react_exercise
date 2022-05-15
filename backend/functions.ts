@@ -9,6 +9,7 @@ const select_top_by_playtime = (json: rawData, options: Options = {}) => {
   )
   // filter
   if (options) sorted = filter(sorted, options)
+  // convert map to simple array
   return sorted
 }
 
