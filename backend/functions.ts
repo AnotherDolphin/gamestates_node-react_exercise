@@ -6,8 +6,6 @@ const select_top_by_playtime = (json: rawData, options: Options = {}) => {
   // sort
   let sorted = [...data.entries()].sort((a, b) => b[1].totalPlayTime - a[1].totalPlayTime)
   // filter
-  console.log(options);
-
   if (options) sorted = filter(sorted, options)
   // convert map to unnamed obj array
   return sorted.map(val => val[1])
