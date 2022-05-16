@@ -30,6 +30,7 @@ The project utilizes the data provided for the task to serve reformatted data th
 - Data types and interfaces in `interfaces.tsx`
 
 ## Usage
+>! node_module folders were removed before archiving for conveneint zipping - npm needed to down
 - navigate to the `/backend` directory and run 
     - `npm install` to install dependencies
     - `npm run start` to run the server
