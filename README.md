@@ -1,5 +1,4 @@
 # Game Stats Tables Task
-### by Abdullah Nayer for Think-it
 
 ## Project Design
 The project utilizes the data provided for the task to serve reformatted data through backend server endpoints to the frontend SPA. Data is ordered by either play time or player number, and filtered according to request queries, then sent to render on two specialized tables on the webapp.
@@ -8,7 +7,7 @@ The project utilizes the data provided for the task to serve reformatted data th
 [/*backend*]
 
 **Node** Server written in **Typescript** with **Express**
-- **Data**: `games.json` file, customly processed at each request.
+- **Data**: `games.json` file, accustomed for at each request.
 - **Functions**: `functions.ts` contains the two requested data processing functions:
   - `select_top_by_playtime(data, {options})`
   - `select_top_by_players(data, {options})`
